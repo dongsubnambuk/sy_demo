@@ -1,0 +1,17 @@
+.container > .footer-container{
+  display: flex;
+  justify-content: bottom;
+  align-items: bottom;
+}
+
+.container > .footer-container > .footer-nav { 
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /*가로*/
+  align-items: center;
+  width: 390px;
+  margin-top: 50px;
+  background-color: rgb(16, 78, 139);
+}
+

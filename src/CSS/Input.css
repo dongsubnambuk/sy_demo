@@ -1,0 +1,14 @@
+.input-container {
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /*높이*/
+  align-items: center; /*너비*/
+  margin-top: 5px;
+}
+
+.input{
+  padding: 18px 170px 18px 0;
+  border-radius: 0.5rem;
+  margin-bottom: -10px;
+}

@@ -1,0 +1,18 @@
+.container > .btn-container {
+  height: 70px;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container > .btn-container > .btn {
+  width: 22rem;
+  height: 65px;
+  background-color: cornflowerblue;
+  border: rgba(100, 148, 237, 0.352);
+  border-radius: 0.25rem;
+  color: antiquewhites;
+  box-shadow:5px 5px 5px gray;
+}
+

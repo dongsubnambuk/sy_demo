@@ -1,0 +1,7 @@
+.container > .findid-container {
+  height: 375px;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+}
