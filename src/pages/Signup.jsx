@@ -64,6 +64,35 @@ function Signup(){
         }
     };
 
+        //회원가입 fetch
+        const handleSignup = async (event) => {
+            event.preventDefault();
+    
+            const response = await fetch('http://chatex.p-e.kr/api/auth/register', { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+            
+                }),
+            });
+    
+            const result = await response.json(); // 응답이 JSON 형식일 경우 이를 JavaScript 객체로 변환
+          
+            if (response.status === 200) { // 응답 status가 200 OK 일 경우
+              
+                console.log(result);
+                console.log("회원가입 성공");
+                alert("회원가입 성공");
+                navigate('/'); 
+            } else {
+                console.log("회원가입 실패");
+                alert("회원가입 실패: " + result.message);
+            }
+        };
 
 
     return(
@@ -158,7 +187,7 @@ function Signup(){
                     
                 </div>
             </div>
-            <button className="signup-btn">회원가입</button>
+            <button className="signup-btn" onClick={handleSignup}>회원가입</button>
         </div>
      
          

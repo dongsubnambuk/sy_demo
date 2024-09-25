@@ -21,6 +21,41 @@ function Login() {
         setPassword(e.target.value);
     };
 
+        // login fetch 함수
+        const handleLogin = async (event) => {
+            event.preventDefault();
+        
+            try {
+                const response = await fetch('http://chatex.p-e.kr/api/auth/login', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                    }),
+                });
+        
+                const result = await response.json();
+        
+                if (response.status === 200) {
+                    console.log(result);
+                    localStorage.setItem("token", result.token);
+                    localStorage.setItem("email", result.user.email);
+                    localStorage.setItem("nickname", result.user.nickname);
+                    localStorage.setItem("UID", result.user.uniqueId);
+                    console.log("로그인 성공");
+                    navigate('/'); 
+                } else {
+                    console.log("로그인 실패");
+                    alert("로그인 실패: " + result.message);
+                }
+            } catch (error) {
+                console.error("Fetch error: ", error);
+            }
+        };
+
 
     return (
         <>
@@ -31,7 +66,7 @@ function Login() {
                 <input type="text" id="username" value={email} className="login-email" placeholder="아이디" onChange={changeEmail} />
                 <input type="password" id="password" value={password} className="login-password" placeholder="비밀번호" onChange={changePassword} />
 
-                <button className="login-btn" >로그인</button>
+                <button className="login-btn" onClick={handleLogin} >로그인</button>
                 <div className="login-options">
                 </div>
                 <p className="signup-link">
